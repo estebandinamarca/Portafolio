@@ -74,7 +74,7 @@ const AboutComponent = Vue.component("about", {
 });
 
 const ROUTER_INSTANCE = new VueRouter({
-    mode: 'history',
+    //mode: 'history',
     routes: [{
         path: '/',
         component: HomeComponent
