@@ -33,23 +33,125 @@
 	<meta name="msapplication-wide310x150logo" content="./img/widetile.png" />
 	<meta name="msapplication-square310x310logo" content="./img/largetile.png" />
 
-	<!-- BOOTSTRAP -->
+	<!-- CSS FONT RUBIK -->
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500" rel="stylesheet">
+
+	<!-- CSS BOOTSTRAP -->
 	<link rel="stylesheet" href="src/bootstrap/bootstrap.css">
+
+	<style>
+		.fade-enter-active, .fade-leave-active {
+				transition: opacity .5s
+		}
+		.fade-enter, .fade-leave-active {
+				opacity: 0
+		}
+	</style>
+
 </head>
 
 <body>
 	<div class="container" id="app">
-		<div class="row">
-			<div class="col-12">
-				<h1>Esteban Dinamarca - {{ message }}</h1>
-				<p>Front End Developer - UI Designer</p>
+
+		<!-- HEADER -->
+		<div class="row py-5">
+			<div class="col-6">
+				<h1>Esteban Dinamarca</h1>
+				<p class="font-weight-light">Front End Developer - UI Designer</p>
+			</div>
+
+			<div class="col-6">
+				<p class="font-weight-light">Work About</p>
 			</div>
 		</div>
-	</div>
-</body>
 
-<!-- VUEJS -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-<script src="src/vuejs/app.js"></script>
+		<transition name="fade" mode="out-in">
+			<router-view></router-view>
+		</transition>
+
+		<!-- CONTENT -->
+		<!-- <div class="row py-5">
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 border">
+				<h2>Contenido</h2>
+			</div>
+
+		</div> -->
+
+	</div>
+
+
+	<script type="x-template" id="home">
+		<div>
+			<p v-for="item in someData.items">
+			<router-link :to="{name: 'work', params: { id: item.fields.slugProyecto }}">
+				{{ item.fields.nombreProyecto }}
+			</router-link>
+			</p>
+			<div>This is my profile component. {{ item }}</div>
+		</div>
+	</script>
+
+	<script type="x-template" id="work">
+		<div>
+			<transition name="fade" mode="out-in">
+				<div :key="$route.params.id">
+					<div>
+					<h1>{{ item }}</h1>
+					<h2 v-for="item in someData.items">{{ item.fields.nombreProyecto }}</h2>
+
+					<router-link :to="{ name: 'work', params: { id: $route.params.id }}"></router-link>
+					</div>
+					<div>
+							<hr>
+							{{ item }} - This is my chapter component. Page: {{ $route.params.id }}
+					</div>
+				</div>
+			</transition>
+		</div>
+	</script>
+
+	<script type="x-template" id="about">
+		<div>
+			<div class="page-contents">This is my profile component. {{ item }}</div>
+			<router-link :to="{name: 'work', params: {id: 1}}">Start Reading</router-link>
+		</div>
+	</script>
+
+
+	<!-- JS VUEJS -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+	<script src="src/vuejs/app.js"></script>
+
+</body>
 </html>
