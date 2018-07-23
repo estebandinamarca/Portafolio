@@ -111,7 +111,7 @@
 
 	<script type="x-template" id="home">
 		<div>
-			<p v-for="item in someData.items">
+			<p v-for="item in projects.items">
 			<router-link :to="{name: 'work', params: { id: item.fields.slugProyecto }}">
 				{{ item.fields.nombreProyecto }}
 			</router-link>
@@ -124,12 +124,20 @@
 		<div>
 			<transition name="fade" mode="out-in">
 				<div :key="$route.params.id">
+
+					<router-link :to="{ path: '/'}">Home</router-link>
+
+					<div v-if="loading = false">
+						<p>LOADING</p>
+					</div>
+
 					<div>
 					<h1>{{ item }}</h1>
 					<h2 v-for="item in someData.items">{{ item.fields.nombreProyecto }}</h2>
 
 					<router-link :to="{ name: 'work', params: { id: $route.params.id }}"></router-link>
 					</div>
+
 					<div>
 							<hr>
 							{{ item }} - This is my chapter component. Page: {{ $route.params.id }}
