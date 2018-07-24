@@ -80,7 +80,7 @@ const AboutComponent = Vue.component("about", {
 });
 
 const router = new VueRouter({
-    //mode: 'history',
+    mode: 'history',
     routes: [{
         path: '/',
         component: HomeComponent
