@@ -56,7 +56,7 @@
 		<!-- HEADER -->
 		<div class="row py-5">
 			<div class="col-6">
-				<h1>Esteban Dinamarca</h1>
+				<h1>NN</h1>
 				<p class="font-weight-light">Front End Developer - UI Designer</p>
 			</div>
 
@@ -111,11 +111,15 @@
 
 	<script type="x-template" id="home">
 		<div>
-			<p v-for="item in projects.items">
-			<router-link :to="{name: 'work', params: { id: item.fields.slugProyecto }}">
-				{{ item.fields.nombreProyecto }}
-			</router-link>
-			</p>
+			<div class="row no-gutters">
+				<div v-for="item in projects.items" class="col-12 col-sm-6 col-md-3 border work-item">
+				<router-link :to="{name: 'work', params: { id: item.fields.slugProyecto }}" class="d-block my-3 py-3 px-0">
+					<div class="w-100 d-block work-img" style="{ backgroundColor: 'red' }"></div>
+					<p>{{ item.fields.nombreProyecto }}</p>
+				</router-link>
+				</div>
+			</div>
+			<hr>
 			<div>This is my profile component. {{ item }}</div>
 		</div>
 	</script>
@@ -133,7 +137,9 @@
 
 					<div>
 					<h1>{{ item }}</h1>
-					<h2 v-for="item in someData.items">{{ item.fields.nombreProyecto }}</h2>
+					<div v-for="item in someData.items" class="col-12 col-sm-6 col-md-3 border">
+						<h2>{{ item.fields.nombreProyecto }}</h2>
+					</div>
 
 					<router-link :to="{ name: 'work', params: { id: $route.params.id }}"></router-link>
 					</div>
