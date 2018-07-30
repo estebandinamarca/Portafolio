@@ -112,10 +112,10 @@
 	<script type="x-template" id="home">
 		<div>
 			<div class="row no-gutters">
-				<div v-for="item in projects.items" class="col-12 col-sm-6 col-md-3 border work-item">
-				<router-link :to="{name: 'work', params: { id: item.fields.slugProyecto }}" class="d-block my-3 py-3 px-0">
-					<div class="w-100 d-block work-img" style="{ backgroundColor: 'red' }"></div>
-					<p>{{ item.fields.nombreProyecto }}</p>
+				<div v-for="item in projects.items" class="col-12 col-sm-6 col-md-3 work-item">
+				<router-link :to="{name: 'work', params: { id: item.fields.slugProyecto }}" class="d-block my-3 py-3 px-1">
+					<div class="w-100 d-block work-img" :style="{ backgroundColor: 'grey' }"></div>
+					<p class="py-3 px-2 text-center font-weight-light text-uppercase">{{ item.fields.nombreProyecto }}</p>
 				</router-link>
 				</div>
 			</div>
