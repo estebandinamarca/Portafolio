@@ -1,3 +1,4 @@
 /*    /home.html   200
-# Redirect default Netlify subdomain to primary domain
 https://silly-mccarthy-fb26c6.netlify.com/* https://www.edinamarca.com/:splat 301!
+https://edinamarca.com/* https://www.edinamarca.com/:splat 200
+http://edinamarca.com/* https://www.edinamarca.com/:splat 200
