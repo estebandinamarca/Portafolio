@@ -1,5 +1,6 @@
 /*    /home.html   200
-http://edinamarca.com/* https://www.edinamarca.com/ 200
-https://edinamarca.com/* https://www.edinamarca.com/:splat 200
+http://edinamarca.com/ https://www.edinamarca.com/ 200
 http://edinamarca.com/* https://www.edinamarca.com/:splat 200
+https://edinamarca.com/ https://www.edinamarca.com/ 200
+https://edinamarca.com/* https://www.edinamarca.com/:splat 200
 https://silly-mccarthy-fb26c6.netlify.com/* https://www.edinamarca.com/:splat 301!
